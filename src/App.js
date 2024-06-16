@@ -1,5 +1,12 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Header from "./components/Header";
+import { appRoute } from "./utils/routes";
 function App() {
-  return <div className=" h-screen w-screen bg-slate-600">youtube clone</div>;
+  return (
+    <div>
+      <RouterProvider router={appRoute} />
+    </div>
+  );
 }
 
 export default App;
