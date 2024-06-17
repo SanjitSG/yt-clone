@@ -1,24 +1,62 @@
-import { FaChromecast, FaRegBell, FaRegUserCircle, FaSearch } from "react-icons/fa";
+import { IoLogoOctocat, IoMenu, IoSearchOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import SearchBar from "./MainContainerComponents/SearchBar";
+import { useDispatch } from "react-redux";
+import toggleMenu from "../utils/navSlice";
+import { useState } from "react";
 
 const Header = () => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  };
+
   return (
-    // header
-    <div>
-      {/* image */}
-      <div id="logo">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png"
-          alt="logo"
-        />
-        {/* button group */}
-        <div>
-          <FaChromecast />
-          <FaRegBell />
-          <FaSearch />
-          <FaRegUserCircle />
+    <>
+      {!showSearchBar && (
+        <div className="flex md:grid-flow-col md:grid justify-between items-center border-b-2 shadow-sm md:shadow-none md:border-none">
+          <div className="flex items-center md:col-span-3">
+            <button onClick={toggleMenuHandler}>
+              <IoMenu className="hidden md:block mx-4 text-xl cursor-pointer" />
+            </button>
+            <Link
+              to="/"
+              className="flex items-center"
+            >
+              <img
+                // src="https://www.freeiconspng.com/uploads/hd-youtube-logo-png-transparent-background-20.png"
+                src="https://www.freeiconspng.com/uploads/deal-with-it-nyan-cat-glasses-png-28.png"
+                alt="Deal with it nyan cat glasses png"
+                className="w-10 cursor-pointer"
+              />
+              <b className="text-lg cursor-pointer">MeowTube</b>
+            </Link>
+          </div>
+
+          <div className="hidden md:block col-span-8">
+            <SearchBar />
+          </div>
+
+          <div className="flex space-x-2 mr-2 md:mr-4 text-xl md:col-span-1">
+            <IoSearchOutline
+              className="md:hidden"
+              onClick={() => setShowSearchBar(!showSearchBar)}
+            />
+
+            <IoLogoOctocat className="md:text-4xl" />
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+      {showSearchBar && (
+        <SearchBar
+          showSearchBar={showSearchBar}
+          setShowSearchBar={setShowSearchBar}
+        />
+      )}
+    </>
   );
 };
 
