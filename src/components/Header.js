@@ -1,19 +1,17 @@
 import { IoLogoOctocat, IoMenu, IoSearchOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import SearchBar from "./MainContainerComponents/SearchBar";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import toggleMenu from "../utils/navSlice";
-import { useState } from "react";
-
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
-
   const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
+    console.log("toggling Menu");
     dispatch(toggleMenu());
   };
-
   return (
     <>
       {!showSearchBar && (
@@ -29,7 +27,7 @@ const Header = () => {
               <img
                 // src="https://www.freeiconspng.com/uploads/hd-youtube-logo-png-transparent-background-20.png"
                 src="https://www.freeiconspng.com/uploads/deal-with-it-nyan-cat-glasses-png-28.png"
-                alt="Deal with it nyan cat glasses png"
+                alt="cat logo"
                 className="w-10 cursor-pointer"
               />
               <b className="text-lg cursor-pointer">MeowTube</b>

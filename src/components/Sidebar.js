@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.nav.isMenuOpen);
+  console.log(isMenuOpen);
   const btns = [
     { icon: <AiFillHome />, name: "Home", to: "/" },
     { icon: <MdSubscriptions />, name: "Subscriptions", to: "/" },
