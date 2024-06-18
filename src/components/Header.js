@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import SearchBar from "./MainContainerComponents/SearchBar";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import toggleMenu from "../utils/navSlice";
+import { toggleMenu } from "../utils/navSlice";
+
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Header = () => {
     console.log("toggling Menu");
     dispatch(toggleMenu());
   };
+
   return (
     <>
       {!showSearchBar && (
