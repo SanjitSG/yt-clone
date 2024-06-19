@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.nav.isMenuOpen);
-  console.log(isMenuOpen);
+
   const btns = [
     { icon: <AiFillHome />, name: "Home", to: "/" },
     { icon: <MdSubscriptions />, name: "Subscriptions", to: "/" },
@@ -23,6 +23,7 @@ const Sidebar = () => {
       </button>
     );
   };
+
   if (!isMenuOpen) return null;
   return (
     <div className="w-52 mx-1 hidden md:block">

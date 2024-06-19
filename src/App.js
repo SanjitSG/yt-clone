@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 function App() {
   return (
     <Provider store={appStore}>
-      <div>
+      <div className="max-w-screen">
         <RouterProvider router={appRoute} />
       </div>
     </Provider>

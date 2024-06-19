@@ -10,12 +10,11 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
-    console.log("toggling Menu");
     dispatch(toggleMenu());
   };
 
   return (
-    <>
+    <div className="border border-purple-500">
       {!showSearchBar && (
         <div className="flex md:grid-flow-col md:grid justify-between items-center border-b-2 shadow-sm md:shadow-none md:border-none">
           <div className="flex items-center md:col-span-3">
@@ -56,7 +55,7 @@ const Header = () => {
           setShowSearchBar={setShowSearchBar}
         />
       )}
-    </>
+    </div>
   );
 };
 
