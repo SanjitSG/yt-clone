@@ -26,7 +26,6 @@ const Header = () => {
               className="flex items-center"
             >
               <img
-                // src="https://www.freeiconspng.com/uploads/hd-youtube-logo-png-transparent-background-20.png"
                 src="https://www.freeiconspng.com/uploads/deal-with-it-nyan-cat-glasses-png-28.png"
                 alt="cat logo"
                 className="w-10 cursor-pointer"
