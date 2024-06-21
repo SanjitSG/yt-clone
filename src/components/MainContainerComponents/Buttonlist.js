@@ -15,7 +15,8 @@ const Buttonlist = () => {
   };
 
   return (
-    <div className="flex w-60 md:w-3/6 border border-black overflow-x-scroll">
+    <div className="flex w-60 md:w-full overflow-x-scroll md:overflow-x-hidden">
+      <FilterBtn name={"Explore"} />
       {categories
         .filter((item) => item.snippet.title.length <= 8)
         .map((item, i) => {

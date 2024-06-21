@@ -1,17 +1,22 @@
 import React from "react";
 import VideoCard from "./VideoCard";
-import { mostPopularVideosApi } from "../../utils/constants";
+import useFetchVideos from "../../hooks/useFetchVideos";
 
 const VideoCardContainer = () => {
-  // call search api
-  // get videos - store it in store - get video cards from store
-  const [searchResult, setSearchResult] = useState([]);
-  use;
-  return (
-    <div className="w-screen p-2 border border-red-600">
-      <VideoCard />
-    </div>
-  );
+  const { videos } = useFetchVideos();
+
+  if (!videos) return null; //return shimmer ui
+
+  if (videos) {
+    console.log("videos:", videos);
+    return (
+      <div className="md:flex md flex-wrap md:justify-center">
+        {videos.map((video) => {
+          return <VideoCard video={video.snippet} />;
+        })}
+      </div>
+    );
+  }
 };
 
 export default VideoCardContainer;

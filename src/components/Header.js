@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <div className="border border-purple-500">
+    <div className="">
       {!showSearchBar && (
         <div className="flex md:grid-flow-col md:grid justify-between items-center border-b-2 shadow-sm md:shadow-none md:border-none">
           <div className="flex items-center md:col-span-3">

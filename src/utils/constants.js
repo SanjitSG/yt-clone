@@ -3,5 +3,5 @@ export const ytCategories =
   process.env.REACT_APP_YT;
 
 export const mostPopularVideosApi =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&locale=IN&key=" +
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&locale=IN&key=" +
   process.env.REACT_APP_YT;
