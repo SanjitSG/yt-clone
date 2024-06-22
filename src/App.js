@@ -1,13 +1,14 @@
 import { RouterProvider } from "react-router-dom";
-import { appRoute } from "./utils/routes";
-import appStore from "./utils/appStore";
+import routes from "./utils/routes";
+import Header from "./components/Header";
+import store from "./utils/store";
 import { Provider } from "react-redux";
 
 function App() {
   return (
-    <Provider store={appStore}>
+    <Provider store={store}>
       <div className="max-w-screen">
-        <RouterProvider router={appRoute} />
+        <RouterProvider router={routes} />
       </div>
     </Provider>
   );

@@ -1,21 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home";
-import MainContainer from "../components/MainContainer";
-import Watch from "../pages/Watch";
+import LandingPage from "../components/LandingPage";
+import MainBody from "../components/MainBody";
+import WatchPage from "../components/WatchPage";
 
-export const appRoute = createBrowserRouter([
+const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <LandingPage />,
     children: [
       {
         path: "/",
-        element: <MainContainer />,
+        element: <MainBody />,
+      },
+      {
+        path: "watch",
+        element: <WatchPage />,
       },
     ],
   },
-  {
-    path: "/watch",
-    element: <Watch />,
-  },
 ]);
+
+export default routes;
