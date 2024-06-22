@@ -5,11 +5,13 @@ import Header from "./Header";
 
 const LandingPage = () => {
   return (
-    <div>
+    <>
       <Header />
-      <Sidebar />
-      <Outlet />
-    </div>
+      <div className="flex">
+        <Sidebar />
+        <Outlet />
+      </div>
+    </>
   );
 };
 

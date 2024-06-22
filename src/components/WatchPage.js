@@ -1,11 +1,10 @@
 import React from "react";
-import Header from "./Header";
 
 const WatchPage = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <h1>watch page</h1>
+    </>
   );
 };
 
