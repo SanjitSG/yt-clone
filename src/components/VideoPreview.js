@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import VideoInfo from "./VideoInfo";
+import { VIDEO_DETAILS_API } from "../utils/constants";
 
 const VideoPreview = ({ videoId }) => {
+  const [video, setVideo] = useState([]);
+
+  useEffect(() => {
+    getVideo();
+  }, []);
+
+  const getVideo = async () => {
+    const data = await fetch(VIDEO_DETAILS_API + videoId);
+    const json = await data.json();
+    setVideo(json.items[0]);
+  };
+
   return (
     <div className="flex flex-col md:w-3/5 md:mr-3 mb-4">
       <div>
@@ -13,7 +27,9 @@ const VideoPreview = ({ videoId }) => {
           allowfullscreen
         ></iframe>
       </div>
-      <div>{/* video info */}</div>
+      <div>
+        <VideoInfo video={video} />
+      </div>
       {/* comments */}
     </div>
   );

@@ -12,6 +12,11 @@ export const SEARCH_RESULT_API =
   process.env.REACT_APP_YT_API +
   "&q=";
 
+export const VIDEO_DETAILS_API =
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=" +
+  process.env.REACT_APP_YT_API +
+  "&id=";
+
 export const kFormatter = (num) => {
   return Math.abs(num) > 999
     ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
