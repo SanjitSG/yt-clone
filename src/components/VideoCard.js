@@ -4,7 +4,6 @@ import { RxDotFilled } from "react-icons/rx";
 import { kFormatter } from "../utils/constants";
 
 const VideoCard = ({ video }) => {
-  console.log(video);
   const { snippet, statistics } = video;
   const { channelTitle, title, thumbnails, publishedAt } = snippet;
   return (

@@ -19,7 +19,7 @@ const FilterButtonList = () => {
     "Mixes",
   ];
 
-  const btnList = (list, style) => {
+  const btnList = (list, style) =>
     list.map((btn, i) => (
       <Link
         key={i}
@@ -32,7 +32,7 @@ const FilterButtonList = () => {
         </button>
       </Link>
     ));
-  };
+
   const style = "p-1 m-1 rounded-lg";
   const mdStyle = "p-1 m-1 rounded-lg hidden md:block";
   return (
