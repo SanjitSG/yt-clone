@@ -13,8 +13,11 @@ const appSlice = createSlice({
     closeMenu: (state) => {
       state.isMenuOpen = false;
     },
+    hideFilterList: (state) => {
+      state.showFilterList = false;
+    },
   },
 });
 
-export const { toggleMenu } = appSlice.actions;
+export const { toggleMenu, closeMenu, hideFilterList } = appSlice.actions;
 export default appSlice.reducer;

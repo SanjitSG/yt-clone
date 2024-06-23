@@ -30,7 +30,7 @@ const VideoCardContainer = () => {
           return (
             <Link
               key={videoId}
-              to={"/watch?v" + videoId}
+              to={"/watch?v=" + videoId}
             >
               <VideoCard
                 video={video}
