@@ -14,7 +14,7 @@ const VideoPreview = ({ videoId }) => {
     const json = await data.json();
     setVideo(json.items[0]);
   };
-
+  if (video.length === 0) return null;
   return (
     <div className="flex flex-col md:w-3/5 md:mr-3 mb-4">
       <div>
@@ -22,9 +22,8 @@ const VideoPreview = ({ videoId }) => {
           className="md:h-[30rem] h-60 w-full rounded-lg"
           src={"https://www.youtube.com/embed/" + videoId}
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
       <div>
