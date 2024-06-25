@@ -17,6 +17,9 @@ export const VIDEO_DETAILS_API =
   process.env.REACT_APP_YT_API +
   "&id=";
 
+export const SEARCH_API =
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
 export const kFormatter = (num) => {
   return Math.abs(num) > 999
     ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"

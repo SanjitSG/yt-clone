@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggleMenu } from "../utils/appSlice";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
   const dispatch = useDispatch();
+
+  const [showSearchBar, setShowSearchBar] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const searchCacheResults = useSelector((store) => store.search);
   const handleToggleMenu = () => {
     dispatch(toggleMenu());
   };
@@ -34,7 +39,7 @@ const Header = () => {
         id="search"
         className="hidden md:block col-span-8"
       >
-        <SearchBar />
+        <SearchBar showSearchBar={showSearchBar} />
       </div>
     </div>
   );
