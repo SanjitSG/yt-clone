@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -12,6 +12,26 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   const searchCacheResults = useSelector((store) => store.search);
+
+  useEffect(() => {
+    // debouncing
+    const timer = setTimeout(() => {
+      if (searchCacheResults[searchQuery]) {
+        setSearchSuggestions(searchCacheResults[searchQuery]);
+      } else {
+        getSearchSuggestions();
+      }
+    }, 200);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchQuery]);
+
+  // suggestion
+  const getSearchSuggestions = () => {};
+
+  // toggleMenu
   const handleToggleMenu = () => {
     dispatch(toggleMenu());
   };
