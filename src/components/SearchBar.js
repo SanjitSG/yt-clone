@@ -1,11 +1,14 @@
 import React from "react";
 import { BiArrowBack, BiSearch } from "react-icons/bi";
 
-const SearchBar = () => {
+const SearchBar = ({ showSearchBar, setShowSearchBar, setSearchQuery, searchSuggestions }) => {
   return (
     <div className="my-2">
       <div className="flex items-center shadow-lg md:shadow-none">
-        <BiArrowBack className="ml-2 md:hidden" />
+        <BiArrowBack
+          className="ml-2 md:hidden"
+          onClick={() => setShowSearchBar(!showSearchBar)}
+        />
         <input
           type="text"
           className="bg-gray-100 outline-blue-400 rounded-full p-1 px-5 m-1 w-full md:p-2 md:bg-white md:border-2 md:rounded-r-none md:mr-0 md:w-[35rem]"
