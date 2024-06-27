@@ -62,7 +62,7 @@ const Header = () => {
               className="flex items-center"
             >
               <img
-                className="w-10 cursor-pointer"
+                className="w-10 mx-2 md:mx-0 cursor-pointer"
                 src="https://www.freeiconspng.com/uploads/youtube-icon-app-logo-png-9.png"
                 width="350"
                 alt="youtube icon app logo png"

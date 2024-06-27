@@ -4,7 +4,6 @@ import VideoCardContainer from "./VideoCardContainer";
 import { useSelector } from "react-redux";
 const MainBody = () => {
   const showFilterList = useSelector((store) => store.app.showFilterList);
-  console.log(showFilterList);
   return (
     <div>
       {showFilterList && <FilterButtonList />}
