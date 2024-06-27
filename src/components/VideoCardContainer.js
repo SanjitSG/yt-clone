@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
-import { SEARCH_API, SEARCH_RESULT_API, YOUTUBE_API } from "../utils/constants";
+import { SEARCH_RESULT_API, YOUTUBE_API } from "../utils/constants";
 import { Link, useSearchParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addVideos } from "../utils/videoSlice";
+import ShimmerUI from "./ShimmerUI";
 const VideoCardContainer = () => {
   // initial state variables
-  const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const filter = searchParams.get("filter");
-  const videos = useSelector((store) => store.videoLib.videos);
 
+  const [videos, setVideos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    getVideos();
-  }, []);
+    getVideos().catch((err) => {
+      console.log(err.message);
+    });
+    setIsLoading(true);
+    setVideos(null);
+  }, [searchParams, filter]);
 
   // fetch videos from YouTube API
   const getVideos = async () => {
@@ -27,15 +30,29 @@ const VideoCardContainer = () => {
         return video.id.kind === "youtube#video";
       }
     });
-    dispatch(addVideos(onlyVideos));
+    setIsLoading(false);
+    setVideos(onlyVideos);
   };
 
-  if (!videos) return <div>{console.log("no videos")}</div>;
+  if (isLoading) return <ShimmerUI />;
+  if (!videos) {
+    return (
+      <div className="md:flex md:flex-wrap md:justify-center">
+        <div className="mt-48 text-lg text-red-400 bg-gray-100 p-2 rounded-xl shadow-inner">
+          Oops! looks like we have exceeded youtube API quota
+        </div>
+      </div>
+    );
+  }
+
   if (videos) {
+    {
+      console.log(videos);
+    }
     return (
       <div className="md:flex md:flex-wrap md:justify-center px-2 pt-2">
         {videos.map((video) => {
-          const videoId = !filter ? video.id : video.id.videoId;
+          const videoId = !filter ? video.id : video.etag;
           return (
             <Link
               key={videoId}

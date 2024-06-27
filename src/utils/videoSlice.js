@@ -7,10 +7,13 @@ const videoSlice = createSlice({
   },
   reducers: {
     addVideos: (state, action) => {
-      state.videos = [...state.videos, ...action.payload];
+      state.videos = [...action.payload];
+    },
+    removeVideos: (state) => {
+      state.videos = [];
     },
   },
 });
 
-export const { addVideos } = videoSlice.actions;
+export const { addVideos, removeVideos } = videoSlice.actions;
 export default videoSlice.reducer;
