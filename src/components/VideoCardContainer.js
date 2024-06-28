@@ -3,6 +3,7 @@ import VideoCard from "./VideoCard";
 import { SEARCH_RESULT_API, YOUTUBE_API } from "../utils/constants";
 import { Link, useSearchParams } from "react-router-dom";
 import ShimmerUI from "./ShimmerUI";
+
 const VideoCardContainer = () => {
   // initial state variables
   const [searchParams] = useSearchParams();
@@ -46,9 +47,6 @@ const VideoCardContainer = () => {
   }
 
   if (videos) {
-    {
-      console.log(videos);
-    }
     return (
       <div className="md:flex md:flex-wrap md:justify-center px-2 pt-2">
         {videos.map((video) => {

@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { VIDEO_DETAILS_API, kFormatter } from "../utils/constants";
+import React, { useState } from "react";
+import { kFormatter } from "../utils/constants";
 import moment from "moment";
 
 const VideoInfo = ({ video }) => {
-  console.log(video);
-  console.log(video.snippet);
   const [showDescription, setShowDescription] = useState(false);
 
   const {
